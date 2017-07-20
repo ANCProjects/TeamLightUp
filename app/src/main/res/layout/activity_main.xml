@@ -25,7 +25,7 @@
         android:text="Numbers"/>
 
     <TextView
-        android:id="@+id/greetingss"
+        android:id="@+id/greetings"
         style="@style/CategoryStyle"
         android:layout_width="match_parent"
         android:layout_height="88dp"
