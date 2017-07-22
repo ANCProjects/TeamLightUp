@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LangTutor</string>
+    <string name="alphabet">Alphabet</string>
+    <string name="numbers">Numbers</string>
+    <string name="greetings">Greetings</string>
+    <string name="family">Family</string>
 </resources>
