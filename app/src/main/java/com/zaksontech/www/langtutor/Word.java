@@ -10,6 +10,7 @@ public class Word {
     private String mYorubaTranslation;
 
 
+
     public Word(String englishTranslation, String yorubaTranslation){
         mEnglishTranslation = englishTranslation;
         mYorubaTranslation = yorubaTranslation;
