@@ -12,7 +12,7 @@
         style="@style/CategoryStyle"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:background="@android:color/holo_green_dark"
+        android:background="#ff99cc00"
         android:text="@string/alphabet"/>
 
     <TextView
@@ -20,7 +20,7 @@
         style="@style/CategoryStyle"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:background="@android:color/holo_purple"
+        android:background="#ff0099cc"
         android:text="@string/numbers"/>
 
     <TextView
@@ -28,7 +28,7 @@
         style="@style/CategoryStyle"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:background="@android:color/darker_gray"
+        android:background="#808080"
         android:text="@string/greetings"/>
 
     <TextView
@@ -36,7 +36,7 @@
         style="@style/CategoryStyle"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="#ffff8800"
         android:text="@string/family"/>
 
 </LinearLayout>
