@@ -47,5 +47,5 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
-    }
 }
+
