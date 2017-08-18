@@ -1,0 +1,78 @@
+package com.zaksontech.www.langtutor;
+
+import android.content.Context;
+import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Kayode Agboola on 31-Jul-17.
+ */
+
+//an array adapter that provides the layout for each list item based on the list of word objects.
+public class LangtutorAdapter extends ArrayAdapter<Word> {
+
+    // this is the Resource ID for the background color for this list of words
+    private int mColorResourceId;
+
+    //Create a new LangtutorAdapter object.
+    public LangtutorAdapter(Context context, ArrayList<Word> words, int colorResourceId) {
+        super(context, 0, words);
+        mColorResourceId = colorResourceId;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Check if an existing view is being reused, otherwise inflate the view
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.items_langtutor, parent, false);
+        }
+
+        // Get the word object located at this position in the list
+        Word currentWord = getItem(position);
+
+        // Find the TextView with the ID yoruba_text_view.
+        TextView yorubaTextView = (TextView) listItemView.findViewById(R.id.yoruba_text_view);
+        // Get the yoruba translation from the currentWord object and set this text on
+        // the yoruba TextView.
+        yorubaTextView.setText(currentWord.getYorubaTranslation());
+
+        // Find the TextView with the ID english_text_view in xml layout.
+        TextView englishTextView = (TextView) listItemView.findViewById(R.id.english_text_view);
+        // Get the english translation from the currentWord object and set this text on
+        // the default TextView.
+        englishTextView.setText(currentWord.getEnglishTranslation());
+
+        // Find the ImageView with the ID image.
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
+        // Check if an image is provided for this word or not
+        if (currentWord.hasImage()) {
+            // If there's an image, display the provided image based on the resource ID
+            imageView.setImageResource(currentWord.getImageResourceId());
+            //and set the image view to visible
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            // Otherwise hide the ImageView
+            imageView.setVisibility(View.GONE);
+        }
+
+
+        // Set the theme color for the list item
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        // Find the color that the resource ID maps to
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        // Set the background color of the text container View
+        textContainer.setBackgroundColor(color);
+
+        // Return the whole list item layout so that it can be shown in the ListView.
+        return listItemView;
+    }
+}
